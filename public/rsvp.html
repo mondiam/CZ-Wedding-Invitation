@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RSVP — Celine and Zonggen</title>
+    <meta name="description" content="RSVP for our wedding celebration." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page">
+<nav class="topbar">
+    <a class="back" href="index.html" aria-label="Back to invitation">← Back</a>
+    <span class="brand">RSVP</span>
+    <span class="spacer"></span>
+</nav>
+
+<main class="container">
+    <section class="form-card">
+        <h1 class="form-title">We can’t wait to see you</h1>
+        <p class="form-subtitle">Please kindly RSVP below ;)</p>
+
+        <form id="rsvpForm" action="https://formspree.io/f/xvgbaond" method="POST" novalidate>
+
+            <div class="grid">
+                <label class="field">
+                    <span>Name*</span>
+                    <input type="text" name="name" autocomplete="name" required />
+                    <small class="error"></small>
+                </label>
+
+                <label class="field">
+                    <span>Email*</span>
+                    <input type="email" name="email" autocomplete="email" required />
+                    <small class="error"></small>
+                </label>
+
+                <label class="field">
+                    <span>Phone</span>
+                    <input type="tel" name="phone" autocomplete="tel" />
+                    <small class="error"></small>
+                </label>
+
+                <label class="field">
+                    <span>Will you attend?*</span>
+                    <select name="attendance" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Yes">Yes, I’ll be there</option>
+                        <option value="No">Sorry, I can’t make it</option>
+                    </select>
+                    <small class="error"></small>
+                </label>
+
+                <label class="field">
+                    <span>Guests (including you)</span>
+                    <input type="number" name="guests" min="1" max="10" inputmode="numeric" />
+                    <small class="error"></small>
+                </label>
+
+                <label class="field span-2">
+                    <span>Message</span>
+                    <textarea name="message" rows="4" placeholder="Anything else we should know?"></textarea>
+                    <small class="error"></small>
+                </label>
+            </div>
+
+            <!-- Helpful extras -->
+            <input type="hidden" name="source" value="rsvp.html" />
+            <input type="hidden" name="_subject" value="New RSVP submission" />
+
+            <button class="btn btn--primary btn--full" type="submit" id="submitBtn">
+                Submit RSVP
+            </button>
+
+            <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <small>© <span id="year"></span> C & Z</small>
+</footer>
+
+<script>
+    // Minimal inline config for the RSVP page only
+    window.FORMSPREE_ID = "xvgbaond"; // ← replace in Step 5
+</script>
+<script src="app.js" defer></script>
+</body>
+</html>
